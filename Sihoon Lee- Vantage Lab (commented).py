@@ -139,7 +139,7 @@ def main():
     model = DistilBertForMaskedLM.from_pretrained('distilbert-base-uncased')
     
     # Set the path for the source and reference files
-    src_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/dev/dev.src'
+    src_file = 'data/dev.src'
     ref_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/dev/dev.ref0'
     # Create the dataset from the source and reference files
     data = create_dataset(src_file, ref_file)
@@ -182,7 +182,7 @@ def main():
             optimizer.step()
             
     # Load test data
-    test_src_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/test/test.src'
+    test_src_file = 'data/test/test.src'
     test_ref_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/test/test.ref0'
     test_data = create_dataset(test_src_file, test_ref_file)
     test_data = test_data[:10]
