@@ -140,7 +140,7 @@ def main():
     
     # Set the path for the source and reference files
     src_file = 'data/dev.src'
-    ref_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/dev/dev.ref0'
+    ref_file = 'data/dev.ref0'
     # Create the dataset from the source and reference files
     data = create_dataset(src_file, ref_file)
     # Use a small subset of data
@@ -183,7 +183,7 @@ def main():
             
     # Load test data
     test_src_file = 'data/test/test.src'
-    test_ref_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/test/test.ref0'
+    test_ref_file = 'data/test/test.ref0'
     test_data = create_dataset(test_src_file, test_ref_file)
     test_data = test_data[:10]
     test_dataset = CorrectWordDataset(test_data, tokenizer)
@@ -192,7 +192,7 @@ def main():
     predict(model, tokenizer, test_dataloader, test_data, device)
 
     # Save the trained model
-    model.save_pretrained('C:/Users/beckh/Grammar Checking/jfleg')
+    model.save_pretrained('jfleg-master/data')
 
 if __name__ == '__main__':
     main()
@@ -208,8 +208,8 @@ def main_pretrained():
     model = DistilBertForMaskedLM.from_pretrained(model_path)
 
     # Load test data
-    test_src_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/test/test.src'
-    test_ref_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/test/test.ref0'
+    test_src_file = 'data/test/test.src'
+    test_ref_file = 'data/test/test.ref0'
     test_data = create_dataset(test_src_file, test_ref_file)
     
     # Create DataLoader from test data
@@ -288,7 +288,7 @@ def predict_on_sentence(model, tokenizer, src_sentence, device):
 
 def main():
     # Load the pretrained model
-    model_dir = "C:/Users/beckh/Grammar Checking/jfleg"  # replace with your own path
+    model_dir = "jfleg-master/data"  # replace with your own path
     model = DistilBertForMaskedLM.from_pretrained(model_dir)
     tokenizer = DistilBertTokenizer.from_pretrained(model_path)
     # Testing sentences
@@ -335,8 +335,8 @@ def calculate_accuracy(model, tokenizer, dataloader, test_data, device):
 # In[30]:
 
 
-test_src_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/test/test.src'
-test_ref_file = 'C:/Users/beckh/Grammar Checking/jfleg-master/jfleg-master/test/test.ref0'
+test_src_file = 'data/test/test.src'
+test_ref_file = 'data/test/test.ref0'
 test_data = create_dataset(test_src_file, test_ref_file)
 test_dataset = CorrectWordDataset(test_data, tokenizer)
 test_dataloader = DataLoader(test_dataset, batch_size=64, shuffle=False, collate_fn=collate_fn)
