@@ -1,4 +1,4 @@
-# Vantage-Labs-Grammar-Correction
+# Grammar-Correction
 
 # Context-Aware Misused Word Correction
 
